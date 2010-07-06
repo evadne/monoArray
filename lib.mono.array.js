@@ -5,7 +5,7 @@
 
 
 
-Array.prototype.supersets = function (anArray) {
+if (!Array.prototype.supersets) Array.prototype.supersets = function (anArray) {
 
 	for (plausibleItemIndex in this) {
 
@@ -37,6 +37,39 @@ Array.prototype.supersets = function (anArray) {
 	}
 
 	return false;
+
+}
+
+
+
+
+
+if (!Array.prototype.pushIfNotEmpty) Array.prototype.pushIfNotEmpty = function (object) {
+
+    if (typeof object == 'undefined') return;
+    if ((object && object.length) <= 0) return;
+
+    this.push(object);
+
+}
+
+
+
+
+
+if (!Array.prototype.containsObject) Array.prototype.hasObject = function (object, caseInsensitive) {
+
+    for (var i = 0; i < this.length; i++) {
+
+        if (this[i] == object) return true;
+
+        if (!(caseInsensitive && (typeof this[i] == 'string') && (typeof object == 'string'))) continue;
+
+        return (this[i].match(RegExp(object, "i")) != null);
+
+    }
+
+    return false;
 
 }
 
