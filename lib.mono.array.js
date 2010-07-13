@@ -48,13 +48,30 @@
 	
 		return false;
 	
-	}
+	};
+	
+	
+	
+	
+	
+	Array.prototype.makeUnique = function() {
+
+		var clonedArray = this.concat();
+
+		for (var indexOriginal = 0; indexOriginal < clonedArray.length; ++indexOriginal)
+	        for (var indexCompared = indexOriginal + 1; indexCompared < clonedArray.length; ++indexCompared)
+		if (clonedArray[indexOriginal] === clonedArray[indexCompared])
+		clonedArray.splice(j, 1);
+
+		return clonedArray;
+
+	};
 
 
 
 
 
-	if (!Array.prototype.containsObject) Array.prototype.hasObject = function (object, caseInsensitive) {
+	if (!Array.prototype.hasObject) Array.prototype.hasObject = function (object, caseInsensitive) {
 	
 		for (var i = 0; i < this.length; i++) {
 	
@@ -68,7 +85,7 @@
 	
 		return false;
 	
-	}
+	};
 
 
 
@@ -84,7 +101,7 @@
 		
 		this.push(object);
 	
-	}
+	};
 
 
 
