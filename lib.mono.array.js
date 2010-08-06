@@ -86,6 +86,19 @@
 		return false;
 	
 	};
+	
+	
+	
+	
+	
+	if (!Array.prototype.indexOfObject) Array.prototype.indexOfObject = function (object) {
+	
+		for (var i = 0; i < this.length; i++)
+		if (this[i] == object) return i;
+	
+		return undefiend;
+	
+	}
 
 
 
