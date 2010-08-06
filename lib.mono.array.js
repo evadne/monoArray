@@ -15,7 +15,7 @@
 //	! 
 //	!Set Operation & Introspection
 
-	Array.prototype.supersets = function (anArray) {
+	if (!Array.prototype.supersets) Array.prototype.supersets = function (anArray) {
 	
 		for (plausibleItemIndex in this) {
 	
@@ -54,7 +54,7 @@
 	
 	
 	
-	Array.prototype.makeUnique = function() {
+	if (!Array.prototype.makeUnique) Array.prototype.makeUnique = function() {
 
 		var clonedArray = this.concat();
 
@@ -66,6 +66,21 @@
 		return clonedArray;
 
 	};
+	
+	
+	
+	
+	
+	if (!Array.prototype.map) Array.prototype.map = function (callback) {
+
+		if (typeof callback != "function") throw new TypeError();
+
+		var responseArray = [];
+		var thisObject = arguments[1];
+		for (var i = 0; i < len; i++) if (i in this) responseArray.push(callback.call(thisObject, this[i], i, this));
+		return responseArray;
+
+	}
 
 
 
@@ -107,7 +122,7 @@
 //	! 
 //	!Enqueuing
 
-	Array.prototype.pushIfNotEmpty = function (object) {
+	if (!Array.prototype.pushIfNotEmpty) Array.prototype.pushIfNotEmpty = function (object) {
 	
 		if (typeof object == 'undefined') return;
 		if ((object && object.length) <= 0) return;
