@@ -77,7 +77,17 @@
 
 		var responseArray = [];
 		var thisObject = arguments[1];
-		for (var i = 0; i < len; i++) if (i in this) responseArray.push(callback.call(thisObject, this[i], i, this));
+		
+		for (var i = 0; i < this.length; i++) {
+		
+			responseArray.push(
+			
+				callback.call(thisObject, this[i], i, this)
+				
+			);
+		
+		}
+				
 		return responseArray;
 
 	}
